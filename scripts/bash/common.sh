@@ -7,7 +7,7 @@ get_repo_root() {
         git rev-parse --show-toplevel
     else
         local script_dir="$(CDPATH="" cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-        (cd "$script_dir/../../.." && pwd)
+        (cd "$script_dir/../.." && pwd)
     fi
 }
 

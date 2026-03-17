@@ -21,7 +21,7 @@ Parse the JSON output.
 
 ### Step 2: Validate Prerequisites
 ```bash
-bash scripts/bash/check-prerequisites.sh --json --phase compose
+bash scripts/bash/check-prerequisites.sh --json --phase clarify
 ```
 Parse the JSON output. If `ready` is `false`, **STOP** and report: units must exist before clarifying.
 

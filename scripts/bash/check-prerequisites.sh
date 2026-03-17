@@ -11,7 +11,7 @@ while [[ $# -gt 0 ]]; do
         --json) JSON_MODE=true; shift ;;
         --phase) PHASE="$2"; shift 2 ;;
         --help|-h)
-            echo "Usage: $0 --phase distill|compose|status [--json]"
+            echo "Usage: $0 --phase distill|clarify|compose|status [--json]"
             echo "  --phase   Phase to validate prerequisites for"
             echo "  --json    Output results in JSON format"
             exit 0
@@ -21,12 +21,12 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$PHASE" ]]; then
-    echo "ERROR: --phase is required (distill|compose|status)" >&2
+    echo "ERROR: --phase is required (distill|clarify|compose|status)" >&2
     exit 2
 fi
 
-if [[ "$PHASE" != "distill" && "$PHASE" != "compose" && "$PHASE" != "status" ]]; then
-    echo "ERROR: Invalid phase '$PHASE'. Must be distill, compose, or status" >&2
+if [[ "$PHASE" != "distill" && "$PHASE" != "clarify" && "$PHASE" != "compose" && "$PHASE" != "status" ]]; then
+    echo "ERROR: Invalid phase '$PHASE'. Must be distill, clarify, compose, or status" >&2
     exit 2
 fi
 
@@ -70,6 +70,23 @@ case "$PHASE" in
             done
             if ! $has_files; then
                 MISSING+=("requirements/inbox/ (no files found)")
+            fi
+        fi
+        ;;
+    clarify)
+        # Check units directory has files (clarify only needs units, not synthesis)
+        if [[ ! -d "$REQ_DIR/units" ]]; then
+            MISSING+=("requirements/units/ (directory missing)")
+        else
+            has_units=false
+            for f in "$REQ_DIR/units"/UNIT-*.md; do
+                if [[ -f "$f" ]]; then
+                    has_units=true
+                    break
+                fi
+            done
+            if ! $has_units; then
+                MISSING+=("requirements/units/ (empty — run /specforge.distill first)")
             fi
         fi
         ;;

@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=common.sh
 source "$SCRIPT_DIR/common.sh"
 
-INBOX_DIR="requirements/inbox"
+INBOX_DIR="$(get_repo_root)/requirements/inbox"
 LARGE_THRESHOLD=500  # lines
 JSON_MODE=false
 
