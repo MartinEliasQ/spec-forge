@@ -27,3 +27,8 @@ venv/
 
 # SpecForge metadata (generated per-project by `specforge init`)
 .specforge/
+
+# Spec-kit / agent artifacts (used during development, not part of the package)
+.claude/
+.specify/
+specs/
