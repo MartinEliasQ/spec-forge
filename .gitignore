@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Editors
+*.swp
+*.tmp
+.vscode/
+.idea/
+
+# Runtime data (user-generated, not tracked)
+requirements/
+
+# Environment
+.env*
+
+# Claude Code
+.claude/
+
+# SpecKit / SpecForge tooling (agent skills, templates, scripts)
+.specforge/
+.specify/
+
+# Specs and plans (generated per-feature, not source code)
+specs/
+
+# Learning system
+.learning/
+
+# Node / Python
+node_modules/
+__pycache__/
+*.pyc
+.venv/
