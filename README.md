@@ -11,7 +11,7 @@ Raw inputs → /specforge.distill → /specforge.clarify → /specforge.compose 
 ## Install
 
 ```bash
-uv tool install specforge-cli --from git+https://github.com/martin/specforge.git
+uv tool install specforge-cli --from git+https://github.com/MartinEliasQ/specforge.git
 ```
 
 ## Quick Start
