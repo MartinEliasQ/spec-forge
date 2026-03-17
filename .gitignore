@@ -7,27 +7,23 @@
 .vscode/
 .idea/
 
-# Runtime data (user-generated, not tracked)
+# Runtime data (user-generated output, not part of the package)
 requirements/
 
 # Environment
 .env*
 
-# Claude Code
-.claude/
-
-# SpecKit / SpecForge tooling (agent skills, templates, scripts)
-.specforge/
-.specify/
-
-# Specs and plans (generated per-feature, not source code)
-specs/
-
 # Learning system
 .learning/
 
-# Node / Python
-node_modules/
+# Python build & packaging
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+build/
+dist/
 .venv/
+venv/
+
+# SpecForge metadata (generated per-project by `specforge init`)
+.specforge/
