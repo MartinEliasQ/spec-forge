@@ -32,9 +32,9 @@ AGENT_CONFIG = {
 
 # Directories to create in user project
 PROJECT_DIRS = [
-    "scripts/bash",
-    "scripts/powershell",
-    "templates",
+    ".specforge/scripts/bash",
+    ".specforge/scripts/powershell",
+    ".specforge/templates",
     "requirements/inbox",
     "requirements/units",
     "requirements/synthesis",
@@ -49,7 +49,7 @@ def _bundled_root() -> Path:
         return bundled
     # Fallback: dev mode — assets live at repo root
     repo_root = Path(__file__).resolve().parent.parent.parent
-    if (repo_root / "scripts").exists():
+    if (repo_root / "scripts").exists() or (repo_root / "templates").exists():
         return repo_root
     raise FileNotFoundError(
         "Could not locate bundled assets. Reinstall with: "
@@ -118,18 +118,18 @@ def init(
     # 2. Copy scripts
     scripts_src = bundled / "scripts"
     if scripts_src.exists():
-        count = _copy_tree(scripts_src, target / "scripts")
-        console.print(f"  [green]✓[/green] Copied {count} scripts to scripts/")
+        count = _copy_tree(scripts_src, target / ".specforge" / "scripts")
+        console.print(f"  [green]✓[/green] Copied {count} scripts to .specforge/scripts/")
 
     # 3. Copy templates (non-command .md files)
     templates_src = bundled / "templates"
     if templates_src.exists():
         count = 0
         for f in templates_src.glob("*.md"):
-            shutil.copy2(f, target / "templates" / f.name)
+            shutil.copy2(f, target / ".specforge" / "templates" / f.name)
             count += 1
         if count:
-            console.print(f"  [green]✓[/green] Copied {count} templates to templates/")
+            console.print(f"  [green]✓[/green] Copied {count} templates to .specforge/templates/")
 
     # 4. Copy commands to agent directory
     commands_src = bundled / "templates" / "commands"
@@ -179,7 +179,7 @@ def init(
 
     # 8. Save init options
     meta_dir = target / ".specforge"
-    meta_dir.mkdir(exist_ok=True)
+    meta_dir.mkdir(parents=True, exist_ok=True)
     (meta_dir / "init-options.json").write_text(
         json.dumps({
             "ai": ai,

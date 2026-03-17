@@ -7,7 +7,8 @@ get_repo_root() {
         git rev-parse --show-toplevel
     else
         local script_dir="$(CDPATH="" cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-        (cd "$script_dir/../.." && pwd)
+        # Scripts live at .specforge/scripts/bash/ — 3 levels from project root
+        (cd "$script_dir/../../.." && pwd)
     fi
 }
 

@@ -15,12 +15,12 @@ You **MUST** consider the user input before proceeding (if not empty).
 ### Step 1: Auto-Initialize
 Run from repo root:
 ```bash
-bash scripts/bash/setup-requirements.sh --json
+bash .specforge/scripts/bash/setup-requirements.sh --json
 ```
 
 ### Step 2: Validate Prerequisites
 ```bash
-bash scripts/bash/check-prerequisites.sh --json --phase compose
+bash .specforge/scripts/bash/check-prerequisites.sh --json --phase compose
 ```
 If `ready` is `false`, **STOP** and report:
 - If units empty: "No requirement units found. Run `/specforge.distill` first to generate units from inbox files."
@@ -44,7 +44,7 @@ Analyze all units and the synthesis overview. Group units into features by **bus
 ### Step 6: Create Feature Directories
 For each feature group, run:
 ```bash
-bash scripts/bash/create-feature.sh --json --name "<feature-name>" --number <NNN>
+bash .specforge/scripts/bash/create-feature.sh --json --name "<feature-name>" --number <NNN>
 ```
 
 Then write the four files in the created directory:

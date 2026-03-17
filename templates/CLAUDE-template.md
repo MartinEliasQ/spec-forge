@@ -18,7 +18,7 @@ You MUST enforce these principles in all operations:
 **CRITICAL**: Before executing any phase, always call `setup-requirements.sh --json` first. This ensures the `requirements/` directory structure exists. The script is idempotent — it preserves existing content and only creates missing directories/files.
 
 ```bash
-bash scripts/bash/setup-requirements.sh --json
+bash .specforge/scripts/bash/setup-requirements.sh --json
 ```
 
 This satisfies User Story 5 (auto-initialization) — users never need to manually create directories.
@@ -31,7 +31,7 @@ This satisfies User Story 5 (auto-initialization) — users never need to manual
 - **Output**: `requirements/units/UNIT-NNN.md`, `requirements/synthesis/overview.md`
 
 ### /specforge.clarify
-- **Script**: `check-prerequisites.sh --json --phase compose`
+- **Script**: `check-prerequisites.sh --json --phase clarify`
 - **Templates**: `unit-template.md`
 - **Output**: Updated `requirements/units/UNIT-NNN.md` files with resolved uncertainties
 
@@ -51,9 +51,9 @@ This satisfies User Story 5 (auto-initialization) — users never need to manual
 
 ## Script Locations
 
-- Bash: `scripts/bash/`
-- PowerShell: `scripts/powershell/`
-- Templates: `templates/`
+- Bash: `.specforge/scripts/bash/`
+- PowerShell: `.specforge/scripts/powershell/`
+- Templates: `.specforge/templates/`
 
 ## Index Management
 

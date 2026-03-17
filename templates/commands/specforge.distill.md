@@ -15,13 +15,13 @@ You **MUST** consider the user input before proceeding (if not empty).
 ### Step 1: Auto-Initialize
 Run from repo root:
 ```bash
-bash scripts/bash/setup-requirements.sh --json
+bash .specforge/scripts/bash/setup-requirements.sh --json
 ```
 Parse the JSON output. This ensures the `requirements/` directory structure exists.
 
 ### Step 2: Validate Prerequisites
 ```bash
-bash scripts/bash/check-prerequisites.sh --json --phase distill
+bash .specforge/scripts/bash/check-prerequisites.sh --json --phase distill
 ```
 Parse the JSON output. If `ready` is `false`, **STOP** and report the `missing` items with clear guidance:
 - If inbox is empty: "No files found in `requirements/inbox/`. Please add your raw input files (meeting notes, braindumps, PRDs, etc.) to `requirements/inbox/` and run `/specforge.distill` again."
@@ -36,7 +36,7 @@ Do NOT touch `requirements/inbox/` — inbox files are read-only.
 ### Step 4: Inventory Inbox Files
 Run from repo root:
 ```bash
-bash scripts/bash/inventory-inbox.sh --json
+bash .specforge/scripts/bash/inventory-inbox.sh --json
 ```
 Parse the JSON output. Review the file list with line counts. For files flagged as `large` (>500 lines), you MUST read them in sections (use `offset` and `limit` parameters) rather than reading the entire file at once. Read each text file's content for analysis. Skip binary files with a warning.
 
@@ -52,7 +52,7 @@ Analyze all inbox content and extract atomic requirement units. For each unit:
 7. Record which inbox file(s) contributed to this unit in `sources`
 
 ### Step 6: Write Unit Files
-For each extracted unit, write a file to `requirements/units/UNIT-NNN.md` using the template at `templates/unit-template.md`. The format is:
+For each extracted unit, write a file to `requirements/units/UNIT-NNN.md` using the template at `.specforge/templates/unit-template.md`. The format is:
 
 ```markdown
 ---

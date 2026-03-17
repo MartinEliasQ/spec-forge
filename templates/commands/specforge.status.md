@@ -15,12 +15,12 @@ You **MUST** consider the user input before proceeding (if not empty).
 ### Step 1: Auto-Initialize
 Run from repo root:
 ```bash
-bash scripts/bash/setup-requirements.sh --json
+bash .specforge/scripts/bash/setup-requirements.sh --json
 ```
 
 ### Step 2: Validate Prerequisites
 ```bash
-bash scripts/bash/check-prerequisites.sh --json --phase status
+bash .specforge/scripts/bash/check-prerequisites.sh --json --phase status
 ```
 If `ready` is `false`, **STOP** and report:
 - If no features: "No feature directories found. Run `/specforge.compose` first to create features from requirement units."

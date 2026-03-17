@@ -15,13 +15,13 @@ You **MUST** consider the user input before proceeding (if not empty).
 ### Step 1: Auto-Initialize
 Run from repo root:
 ```bash
-bash scripts/bash/setup-requirements.sh --json
+bash .specforge/scripts/bash/setup-requirements.sh --json
 ```
 Parse the JSON output.
 
 ### Step 2: Validate Prerequisites
 ```bash
-bash scripts/bash/check-prerequisites.sh --json --phase clarify
+bash .specforge/scripts/bash/check-prerequisites.sh --json --phase clarify
 ```
 Parse the JSON output. If `ready` is `false`, **STOP** and report: units must exist before clarifying.
 

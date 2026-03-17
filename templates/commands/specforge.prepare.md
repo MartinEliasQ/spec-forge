@@ -15,7 +15,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 ### Step 1: Auto-Initialize
 Run from repo root:
 ```bash
-bash scripts/bash/setup-requirements.sh --json
+bash .specforge/scripts/bash/setup-requirements.sh --json
 ```
 Report: directory structure status.
 

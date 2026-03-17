@@ -34,7 +34,7 @@ source "$SCRIPT_DIR/common.sh"
 
 REPO_ROOT=$(get_repo_root)
 REQ_DIR="$REPO_ROOT/requirements"
-TEMPLATES_DIR="$REPO_ROOT/templates"
+TEMPLATES_DIR="$REPO_ROOT/.specforge/templates"
 
 # Convert name to kebab-case
 KEBAB_NAME=$(echo "$FEATURE_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
