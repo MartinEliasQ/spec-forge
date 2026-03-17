@@ -1,0 +1,44 @@
+Product Ideas - Brain Dump
+=========================
+
+The whole point of this thing is to make project management less painful for small teams (5-20 people). Current tools are either too simple (sticky notes, spreadsheets) or too complex (Jira, Monday).
+
+Key insight: most small teams don't need Gantt charts or sprint planning. They need:
+- A clear list of what needs to be done
+- Who's responsible
+- What's blocked and why
+- A simple way to communicate progress
+
+Feature thoughts:
+
+PROJECTS
+- Each project has a name, description, due date, and owner
+- Projects contain tasks
+- A project can be "active", "completed", or "archived"
+- Users should be able to star/favorite projects for quick access
+
+TASKS
+- Tasks belong to a project
+- Each task has: title, description, assignee, status (todo/in-progress/done/blocked), priority (low/medium/high/urgent)
+- Tasks can have comments for async discussion
+- File attachments on tasks would be nice but maybe v2?
+- Subtasks? Maybe. Keep it simple for now.
+
+NOTIFICATIONS
+- When you're assigned a task, you should know
+- When a task you're watching changes status, you should know
+- Daily digest option — "here's what changed in your projects today"
+- Don't over-notify. Nobody likes notification spam.
+
+SEARCH
+- Global search across projects and tasks
+- Filter by assignee, status, project, date range
+- Full-text search in task descriptions and comments
+
+What we DON'T want:
+- No time tracking (use Toggl or whatever)
+- No billing/invoicing
+- No complex workflow automation
+- No Gantt charts (seriously)
+
+Competitive edge: simplicity. If a feature doesn't make the tool simpler or more useful for a 10-person team, we don't build it.

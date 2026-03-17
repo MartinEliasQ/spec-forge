@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Editors
+*.swp
+*.tmp
+.vscode/
+.idea/
+
+# Runtime data (user-generated output, not part of the package)
+requirements/
+
+# Environment
+.env*
+
+# Learning system
+.learning/
+
+# Python build & packaging
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# SpecForge metadata (generated per-project by `specforge init`)
+.specforge/
